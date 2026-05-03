@@ -16,6 +16,20 @@ import pandas as pd
 MODEL_PATH = "model/best_model.h5"
 IMG_SIZE = (128, 128)
 
+import urllib.request
+import os
+
+def download_model():
+    if not os.path.exists("model/best_model.h5"):
+        os.makedirs("model", exist_ok=True)
+
+        url = "https://drive.google.com/uc?export=download&id=15VXjtVRjTz_sc0S-rjhnhLRwxMMlfso4"
+
+        urllib.request.urlretrieve(url, "model/best_model.h5")
+
+        print("Model downloaded successfully")
+
+download_model()
 # =========================
 # LOAD MODEL
 # =========================
